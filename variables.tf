@@ -1,4 +1,4 @@
-variable "ofir_key" {
+variable "ofir-key" {
   type        = string
   description = "GitLab assigns the secret var"
 }
