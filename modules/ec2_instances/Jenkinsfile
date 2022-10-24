@@ -1,0 +1,96 @@
+// switched to gitlab CI/CD
+pipeline {
+    agent any
+
+    stages {
+        stage('Deploy to Dev') {
+            steps {
+                echo 'Deploying to dev env'
+                sh script:'''
+                #!/bin/bash
+                cd dev
+                echo "This is $(pwd)"
+                terraform init
+                terraform fmt ../
+                terraform validate ../
+                terraform apply ../
+                cd ..
+                '''
+            }
+        }
+
+        stage('Deploy to QA') {
+            steps {
+                echo 'Deploying.... QA env'
+                sh script:'''
+                #!/bin/bash
+                cd qa
+                echo "This is $(pwd)"
+                terraform init
+                terraform fmt ../
+                terraform validate ../
+                terraform apply ../
+                cd ..
+                '''
+            }
+        }
+
+        stage('Deploy to Prod') {
+            steps {
+                echo 'Deploying.... Prod env'
+                sh script:'''
+                #!/bin/bash
+                cd prod
+                echo "This is $(pwd)"
+                terraform init
+                terraform fmt ../
+                terraform validate ../
+                terraform apply ../
+                cd ..
+                '''
+            }
+        }
+
+        
+        stage('Destroy Dev') {
+            steps {
+                echo 'destroy dev env'
+                sh script:'''
+                #!/bin/bash
+                cd dev
+                echo "This is $(pwd)"
+                terraform destroy
+                cd ..
+                '''
+            }
+        }
+
+        stage('Destroy QA') {
+            steps {
+                echo 'destory qa env'
+                sh script:'''
+                #!/bin/bash
+                cd qa
+                echo "This is $(pwd)"
+                terraform destroy
+                cd ..
+                '''
+            }
+        }
+
+        stage('Destroy Prod') {
+            steps {
+                echo 'destory Prod env'
+                sh script:'''
+                #!/bin/bash
+                cd prod
+                echo "This is $(pwd)"
+                terraform destroy
+                cd ..
+                '''
+            }
+        }
+
+
+    }
+}
