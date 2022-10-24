@@ -20,7 +20,7 @@ module "ec2_instances" {
   
   #   here we can change all the of the module vars
   #   and it will inherit them when we terraform init, fmt, validate,apply, destroy.
-  ofir-key = var.ofir-key
+  ec2_test_key = var.ec2_test_key
 }
 
 
