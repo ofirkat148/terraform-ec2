@@ -114,10 +114,10 @@ variable "vpc_security_group_id" {
 # }
 
 variable "key_name" {
-  default = "ec2_test_key"
+  default = "ofir-key"
 }
 
-variable "ofir-key" {
+variable "ec2_test_key" {
   type        = string
   description = "GitLab assigns the secret var"
 }
