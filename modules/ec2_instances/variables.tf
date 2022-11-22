@@ -112,7 +112,7 @@ variable "security_group_id" {
 
 variable "security_group_name" {
   type = string
-  default = "default"
+  default = "sg_tf_devops"
 }
 
 # variable "instance_profile" {
