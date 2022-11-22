@@ -105,8 +105,14 @@ variable "subnet_id" {
   default = "subnet-0742f256710a91f52"
 }
 
-variable "vpc_security_group_id" {
-  default = "sg-0139c5e8d3b8a5f12"
+variable "security_group_id" {
+  type = string
+  default = ""
+}
+
+variable "security_group_name" {
+  type = string
+  default = "default"
 }
 
 # variable "instance_profile" {
