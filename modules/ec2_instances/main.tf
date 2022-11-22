@@ -24,7 +24,7 @@ resource "aws_instance" "devops" {
   count                       = length(data.aws_subnets.subnets.ids)
   ami                         = data.aws_ami.ubuntu.id
   instance_type               = var.environment_instance_settings[var.deploy_environment][var.instance_type]
-  vpc_security_group_ids      = [aws_security_group.sg_ssh.id]
+  vpc_security_group_ids      = [aws_security_group.sg_tf_devops.id]
   key_name                    = var.generated_key_name
   associate_public_ip_address = false
   subnet_id                   = data.aws_subnets.subnets.ids[count.index]
