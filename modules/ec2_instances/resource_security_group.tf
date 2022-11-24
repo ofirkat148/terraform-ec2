@@ -1,5 +1,5 @@
 # select security group
-resource "aws_security_group" "sg_ssh" {
+resource "aws_security_group" "sg_tf_devops" {
   name   = var.security_group_name
   vpc_id = data.aws_vpc.devops.id
   // Incoming traffic
