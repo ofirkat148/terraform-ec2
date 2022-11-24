@@ -101,7 +101,7 @@ variable "vpc" {
   }
 }
 
-variable generated_key_name {
+variable "generated_key_name" {
   type        = string
   default     = "tfc_devops"
   description = "description"
