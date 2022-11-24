@@ -62,8 +62,6 @@ resource "aws_instance" "devops" {
   }
 
   depends_on = [
-    aws_security_group.sg_tf_devops,
-    aws_key_pair.generated_key,
     var.deploy_environment,
     var.environment_list
   ]
