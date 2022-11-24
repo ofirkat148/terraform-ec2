@@ -101,6 +101,13 @@ variable "vpc" {
   }
 }
 
+variable generated_key_name {
+  type        = string
+  default     = "tfc_devops"
+  description = "description"
+}
+
+
 variable "subnet_id" {
   default = "subnet-0742f256710a91f52"
 }
